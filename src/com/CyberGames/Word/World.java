@@ -78,13 +78,25 @@ public class World {
 	}
 	
 	public static void render(Graphics g) {
-		for(int i = 0; i < Wmap; i++) {
-			for(int y = 0; y < Hmap; y++) {
+		int xstart = Camera.x / 16;
+		int ystart = Camera.y / 16;
+		
+		int xfinal = xstart + (Game.Width / 16);
+		int yfinal = ystart + (Game.Height / 16);
+		
+		
+		for(int i = xstart; i <= xfinal; i++) {
+			for(int y = ystart; y <= yfinal; y++) {
+				
+				if(i < 0 || y < 0 || i >= Wmap || y >= Hmap)
+					continue;
+				
 				Tile tile = tiles[i + (y * Wmap)];
-				tile.render(g);
+				tile.render(g);					
 				
 			}
 		}
+		
 	}
 	
 	
