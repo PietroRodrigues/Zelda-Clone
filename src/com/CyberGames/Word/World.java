@@ -39,12 +39,12 @@ public class World {
 					Game.entities.add(new Enemy(i*16,y*16,16,16,Entity.Enemy_EN));					
 					break;
 				case 0xFFFFFFFF:
-					//branco Parede
-					tiles[i + (y * Wmap)] = new WallTile(i*16, y*16, Tile.TILE_WALL);
-					break;
-				case 0xFF000000:
 					//prento chao
 					tiles[i + (y * Wmap)] = new FloorTile(i*16, y*16, Tile.TILE_FLOOR);
+					break;
+				case 0xFF000000:
+					//branco Parede
+					tiles[i + (y * Wmap)] = new WallTile(i*16, y*16, Tile.TILE_WALL);					
 					break;
 				case 0xFFFF00C7:
 					//rosa life

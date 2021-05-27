@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 import com.CyberGames.Word.Camera;
+import com.CyberGames.Word.World;
 import com.CyberGamesDeveloper.main.Game;
 
 public class Player extends Entity {
@@ -78,8 +79,8 @@ public class Player extends Entity {
 			}
 		}
 		
-		Camera.x = this.getX() - (Game.Width/2);
-		Camera.y = this.getY() - (Game.Height/2);
+		Camera.x = Camera.clamp(this.getX() - (Game.Width/2),0 , World.Wmap*16 - Game.Width);
+		Camera.y = Camera.clamp(this.getY() - (Game.Height/2),0 , World.Hmap*16 - Game.Height);
 		
 	}
 	
